@@ -161,8 +161,100 @@ const questions = {
         {
             type: "list",
             name: "addNew",
-            message: "Do you want to add another employee",
+            message: "Would you like to add another employee?",
             choices: ["yes", "no"]
         }
     ]
 };
+
+
+
+// Has you categorize the employees role
+const selectEmployeeType = [
+    {
+        type: "list",
+        name: "employeeType",
+        message: "Please choose the role for the employee",
+        choices: ["Manager", "Engineer", "Intern"],
+    }
+];
+
+
+
+
+
+function addNewMember() {
+    inquirer.prompt(selectEmployeeType)
+        .then(answer => {
+
+
+            // console.log(answer.employeeType);
+
+            if (answer.employeeType === "Manager") {
+                if (canAddManager) {
+                    inquirer.prompt(questions.Manager)
+                        .then(answer => {
+                            const manager = new Manager
+                                (
+                                    answer.name,
+                                    answer.id,
+                                    answer.email,
+                                    answer.officeNumber
+                                );
+                            team.push(manager);
+                            canAddManager = false;
+                            if (answer.addNew === "yes") {
+                                addNewMember();
+                            } else {
+                                generate();
+                            }
+                        });
+                } else {
+                    console.log("A manager has already been inputed!")
+                    addNewMember();
+                }
+
+
+            } else if (answer.employeeType === "Engineer") {
+                inquirer.prompt(questions.Engineer)
+                    .then(answer => {
+                        const engineer = new Engineer
+                            (
+                                answer.name,
+                                answer.id,
+                                answer.email,
+                                answer.github
+                            );
+                        team.push(engineer);
+                        if (answer.addNew === "yes") {
+                            addNewMember();
+                        } else {
+                            generate();
+                        };
+                    });
+
+            } else if (answer.employeeType === "Intern") {
+                inquirer.prompt(questions.Intern)
+                    .then(answer => {
+                        const intern = new Intern
+                            (
+                                answer.name,
+                                answer.id,
+                                answer.email,
+                                answer.school
+                            );
+                        team.push(intern);
+                        if (answer.addNew === "yes") {
+                            addNewMember();
+                        } else {
+                            generate();
+                        };
+                    });
+            };
+        });
+};
+
+addNewMember();
+    fs.writeFileSync(outputPath, render(team), "utf-8");
+    process.exit(0);
+}

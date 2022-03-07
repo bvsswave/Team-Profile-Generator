@@ -1,14 +1,16 @@
-<div class="card employee-card mr-4 ml-4 mb-3">
-    <div class="card-header text-center">
-        <h2 class="card-title">{{ name }}</h2>
-        <h3 class="card-title"><i class="fas fa-glasses mr-2"></i>{{ role }}</h3>
-    </div>
-    <div class="card-body">
-        <ul class="list-group">
-            <li class="list-group-item">ID: {{ id }}</li>
-            <li class="list-group-item">Email: <a href="mailto:{{ email }}">{{ email }}</a></li>
-            <li class="list-group-item">GitHub: <a href="https://github.com/{{ github }}" target="_blank"
-                    rel="noopener noreferrer">{{ github }}</a></li>
-        </ul>
-    </div>
-</div>
+const Engineer = require("../lib/Engineer");
+test("get github", () => {
+  const testValue = "GitHubUser";
+  const e = new Engineer("Alex", 1, "test@test.com", testValue);
+  expect(e.github).toBe(testValue);
+});
+test("getRole() should return \"Engineer\"", () => {
+  const testValue = "Engineer";
+  const e = new Engineer("Alex", 1, "test@test.com", "GitHubUser");
+  expect(e.getRole()).toBe(testValue);
+});
+test("gets github", () => {
+  const testValue = "GitHubUser";
+  const e = new Engineer("Alex", 1, "test@test.com", testValue);
+  expect(e.getGithub()).toBe(testValue);
+});

@@ -1,0 +1,46 @@
+h1 {
+    font-size: 50px;
+    letter-spacing: 10px;
+    text-transform: uppercase;
+    font-weight: bolder;
+}
+
+h2 {
+    font-weight: bold;
+}
+
+span {
+    opacity: 0.7;
+}
+
+body {
+    Font-Family: Sans-Serif;
+    background-color: black;
+    color: white;
+}
+
+.jumbotron {
+    background: purple;
+}
+
+.employee-card {
+    box-shadow: 6px 3px 9px 1px blue;
+}
+
+.card-header {
+    background: #152C40;
+}
+
+.card-body {
+    color: #152C40;
+}
+
+a {
+    color: orange;
+}
+
+a:hover {
+    color: lightcoral;
+    text-decoration: none;
+    text-transform: uppercase;
+}

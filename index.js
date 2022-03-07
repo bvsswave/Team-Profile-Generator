@@ -1,6 +1,6 @@
 const Manager = require("./lib/Manager");const employee = require("./lib/employee");
-const engineer = require("./lib/engineer");
-const intern = require("./lib/intern");
+const Engineer = require("./lib/engineer");
+const Intern = require("./lib/intern");
 const inquirer = require("inquirer");
 const fs = require("fs");
 const emailValidator = require('email-validator');

@@ -3,6 +3,9 @@
 ### REPO: https://github.com/bvsswave/Team-Profile-Generator.git
 ### DEMO: https://drive.google.com/file/d/1CoIyI116AofocdqkaSaNMpihKncLHh4v/view?usp=sharing
 
+<img width="707" alt="Screen Shot 2022-03-07 at 1 37 59 AM" src="https://user-images.githubusercontent.com/89813860/156996739-f9d15a39-da31-4346-a291-b16393bf08c4.png">
+
+
 ## Description
 An app that helps you keep track of your employees and their details
 
